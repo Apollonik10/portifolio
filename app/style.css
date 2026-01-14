@@ -107,7 +107,7 @@ nav a:hover {
   position: relative;
   z-index: 1;
 
-  width: 200px; /* ajuste */
+  width: 200px; 
   filter: drop-shadow(0 22px 55px rgba(0, 0, 0, 0.85));
 }
 
@@ -133,7 +133,9 @@ p {
   font-size: 1rem;
   line-height: 1.7;
 }
-
+.subtitle {
+  color: var(--neon-blue);
+}
 
 .section-title {
   display: inline-flex;
@@ -142,7 +144,7 @@ p {
 }
 
 .section-title img {
-  width: 100px;       /* tamanho ideal para mascote */
+  width: 100px;
   height: auto;
   transform: translateY(2px);
   opacity: 0.85;
@@ -150,40 +152,38 @@ p {
 
 .skills-box {
   display: flex;
-  flex-direction: row; /* Alinha da esquerda para a direita */
-  align-items: center;  /* Centraliza o mascote verticalmente em relação à lista */
-  justify-content: flex-start; /* Alinha todo o bloco à esquerda */
-  gap: 2rem;           /* Espaço entre a lista e o mascote */
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 2rem;  
   margin-top: 1.5rem;
 }
 
 .skills-box ul {
-  list-style: none;    /* Remove as bolinhas se desejar o visual limpo da imagem */
+  list-style: none; 
   padding: 0;
   margin: 0;
-  text-align: left;    /* Garante o alinhamento do texto à esquerda */
+  text-align: left;   
 }
 
 .skills-box ul li {
   margin-bottom: 0.5rem;
-  /* Se quiser adicionar aquele detalhe de 'cyberpunk' na lista: */
   border-left: 2px solid #00fffc; 
   padding-left: 10px;
 }
 
 .skills-box img {
-  width: 180px;        /* Ajustado para não ocupar espaço demais no mobile */
+  width: 180px; 
   height: auto;
   flex-shrink: 0;
   opacity: 0.9;
-  /* Efeito de brilho suave opcional para o tema */
   filter: drop-shadow(0 0 5px rgba(0, 255, 252, 0.5));
 }
 
 /* Ajuste para telas muito pequenas (Mobile) */
 @media (max-width: 480px) {
   .skills-box {
-    flex-direction: column-reverse; /* No mobile, o mascote fica em cima ou embaixo */
+    flex-direction: column-reverse; 
     align-items: flex-start;
   }
 }
