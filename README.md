@@ -66,7 +66,6 @@ A prioridade é sempre **boa experiência no mobile**, sem quebrar o layout no d
 
 ## 📬 Contato
 
-- GitHub: (adicione seu link aqui)
 - WhatsApp 81993600999 
 - E-mail: (apollonik10@gmail.com)
 
