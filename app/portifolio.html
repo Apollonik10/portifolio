@@ -19,7 +19,14 @@
     </nav>
 
     <div class="header-top">
+      <div class="logo-icon">LC</div>
       <h2>Olá, me chamo Felipe Cavalcante Garcia</h2>
+
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
       <div class="photo-wrapper">
         <img src="https://i.postimg.cc/zf9tqt6R/temp-20260106151234769.png" alt="Foto de Felipe Garcia">
@@ -29,6 +36,17 @@
     <h1>Desenvolvedor Front-end</h1>
     <p class="subtitle">Criador da Lunar Code</p>
   </header>
+
+  <script>
+  function toggleNav() {
+    const nav = document.querySelector('.nav');
+    const toggle = document.querySelector('.nav-toggle');
+    nav.classList.toggle('open');
+    toggle.classList.toggle('open');
+    const expanded = nav.classList.contains('open');
+    toggle.setAttribute('aria-expanded', expanded);
+  }
+  </script>
 
   <main>
 

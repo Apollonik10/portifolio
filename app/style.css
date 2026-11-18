@@ -418,6 +418,145 @@ p {
   }
 }
 
+/* --- Fase 3: Header e Navegação Flutuante Cyberpunk --- */
+
+/* Header Fixo com Glassmorphism */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(43, 43, 43, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--neon-blue);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: background var(--transition-fast);
+}
+
+header.scrolled {
+  background: rgba(18, 18, 23, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: var(--neon-pink);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.nav a {
+  color: var(--neon-blue);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 0.875rem;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--neon-blue);
+  transition: width var(--transition-fast);
+}
+
+.nav a:hover {
+  color: var(--neon-pink);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav a:focus-visible {
+  outline: 2px solid var(--neon-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Photo com efeito neon pulsante */
+.photo-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0, 102, 255, 0.4);
+  transition: transform var(--transition-fast);
+}
+
+.photo-wrapper img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 102, 255, 0.6);
+}
+
+.photo-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-blue);
+  opacity: 0.5;
+  animation: pulseNeon 2s ease-in-out infinite;
+}
+
+@keyframes pulseNeon {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Responsivo para mobile */
+@media (max-width: 600px) {
+  .nav {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(18, 18, 23, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--neon-blue);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-fast);
+  }
+
+  .nav.open {
+    max-height: 300px;
+  }
+
+  .nav a {
+    display: block;
+    padding: 1rem 2rem;
+    width: 100%;
+    border-bottom: 1px solid var(--neon-blue);
+  }
+
+  .header-top {
+    margin-top: 1rem;
+  }
+
+  .photo-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 /* --- Mantendo estilos originais --- */
 article {
   background: rgba(255, 255, 255, 0.05);
