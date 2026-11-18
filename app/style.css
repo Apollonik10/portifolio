@@ -13,6 +13,18 @@
   --text-color: #f0f0f0;
 }
 
+/* Reduzir movimentos animados para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+  h1 {
+    text-shadow: none !important;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -56,7 +68,7 @@ h1 {
 }
 
 nav a {
-  color:  var (--neon-blue: ) #00ffff;
+  color: var(--neon-blue);
   text-decoration: none;
   margin-left: 1.5rem;
   transition: 0.3s;
