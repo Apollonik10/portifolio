@@ -2,346 +2,77 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio — Felipe C. Garcia</title>
+  <title>Lunar Code</title>
+ <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-  <!-- Astryx core styles via CDN -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.io" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    #container {
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@astryxdesign/core@0.7.16/astryx.css">
+    video {
+      max-width: 100%;
+      max-height: 100%;
+    }
 
-  <!-- Tema customizado -->
-  <link rel="stylesheet" href="app/style.css">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
-
-  <!-- Metadados -->
-  <meta name="description" content="Portfólio de Felipe C. Garcia — desenvolvedor front-end com foco em estrutura, responsividade e experiência do usuário">
-  <meta name="author" content="Felipe C. Garcia">
+    #start {
+      position: absolute;
+      z-index: 10;
+      color: #7ddcff;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.5s;
+      padding: 12px 24px;
+      border: 2px solid #7ddcff; 
+      border-radius: 8px;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Modelo Astryx: header com navegação e tema -->
-  <header class="border-b bg-card/50 backdrop-blur[data-theme='neutral']" data-theme-toggle>
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between flex-col sm:flex-row gap-2">
-      <h1 class="text-xl font-semibold tracking-tighter">
-        <a href="index.html" class="no-underline text-foreground">Felipe Garcia</a>
-      </h1>
+  <div id="start">Toque para iniciar</div>
 
-      <nav class="flex items-center gap-4" aria-label="Navegação principal">
-        <a href="index.html" class="hover:text-accent transition-colors" title="Início">Início</a>
-        <a href="app/portifolio.html" class="hover:text-accent transition-colors" title="Portfólio">Projetos</a>
-        <a href="#contato" class="hover:text-accent transition-colors" title="Contato">Contato</a>
-      </nav>
+  <div id="container">
+    <video id="intro">
+      <source src="assets/vinheta.mp4" type="video/mp4">
+    </video>
+  </div>
 
-      <!-- Botão de tema -->
-      <button class="theme-toggle inline-flex items-center gap-1 p-2 rounded-md hover:bg-accent/10 transition-colors" aria-label="Alternar tema">
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-        </svg>
-        <span class="sr-only">Alternar tema</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Conteúdo principal -->
-  <main class="max-w-7xl mx-auto px-4 py-12">
-
-      <section class="mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">Bem-vindo ao meu portfólio</h2>
-
-        <p class="text-lg leading-relaxed text-muted mb-8">
-          Sou desenvolvedor em formação, com foco em <strong>Front-end moderno</strong>, utilizando tecnologias atuais da web. Trabalho com código organizado, boas práticas e projetos pensados para crescer sem retrabalho.
-        </p>
-
-        <!-- Data-dense: Lista de tecnologias em vez de parágrafo longo -->
-        <div class="space-y-3 text-sm">
-          <div>
-            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">HTML5 semântico</kbd>
-            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">CSS3 Flexbox e Grid</kbd>
-            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">JavaScript ES6+</kbd>
-            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">Git & GitHub</kbd>
-            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">Design responsivo mobile-first</kbd>
-          </div>
-        </div>
-      </section>
-
-      <!-- Carrossel de Projetos (Fase 2: Componentes UI Avançados) -->
-      <section id="carrossel-projetos" class="mb-12 overflow-hidden rounded-2xl border border-card-border bg-card">
-        <div class="flex transition-colors" data-carrossel-direction>
-          <!-- Setas de navegação -->
-          <button class="carrossel-btn prev absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-card/50 p-2 rounded-md hover:bg-accent/10 transition-colors" aria-label="Projeto anterior" tabindex="0">
-            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
-            </svg>
-            <span class="sr-only">Projeto anterior</span>
-          </button>
-          <button class="carrossel-btn next absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-card/50 p-2 rounded-md hover:bg-accent/10 transition-colors" aria-label="Próximo projeto" tabindex="0">
-            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-            </svg>
-            <span class="sr-only">Próximo projeto</span>
-          </button>
-
-          <div class="carrossel-track flex flex-col sm:flex-row gap-4 overflow-x-auto pb-6 scrollbar-none" data-carrossel-track>
-            <!-- Projetos serão injetados pelo JS -->
-          </div>
-        </div>
-      </section>
-
-      <!-- Seção de projetos em grid (table-like layout) -->
-      <section id="projetos" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Cada projeto usa a estrutura de componente Astryx -->
-
-        <div class="bg-card p-6 rounded-2xl border border-card-border hover:hover:border-accent/20 hover:shadow-sm transition-all duration-300" tabindex="0" role="card">
-          <h3 class="text-lg font-medium mb-2">Google Glass (Projeto Conceitual)</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">
-            Projeto desenvolvido para praticar estrutura de páginas, layout responsivo e organização de conteúdo.
-          </p>
-          <ul class="space-y-1 text-xs">
-            <li><kbd>HTML semântico</kbd></li>
-            <li><kbd>CSS organizado</kbd></li>
-            <li><kbd>Navegação clara</kbd></li>
-            <li><kbd>Adaptação para telas</kbd></li>
-          </ul>
-          <a href="#" class="mt-3 inline-block text-accent hover:underline" title="Ver mais detalhes">Ver projeto</a>
-        </div>
-
-        <div class="bg-card p-6 rounded-2xl border border-card-border hover:hover:border-accent/20 hover:shadow-sm transition-all duration-300" tabindex="0" role="card">
-          <h3 class="text-lg font-medium mb-2">Outros projetos em destaque</h3>
-          <p class="text-muted text-sm leading-relaxed mb-4">
-            Interface para negócios reais, aplicações web progressivas (PWA) e projetos com foco em usabilidade e escalabilidade.
-          </p>
-          <ul class="space-y-1 text-xs">
-            <li><kbd>PWA & Progressive Web Apps</kbd></li>
-            <li><kbd>Usabilidade avançada</kbd></li>
-            <li><kbd>Escalabilidade front-end</kbd></li>
-          </ul>
-          <a href="#" class="mt-3 inline-block text-accent hover:underline" title="Ver mais projetos">Ver mais</a>
-        </div>
-
-      </section>
-
-      <!-- Seção de contato flutuante -->
-      <section class="mt-12 pt-8 border-t" id="contato">
-        <h2 class="text-2xl font-bold leading-tight mb-4">Contato</h2>
-
-        <div class="grid grid-cols-2 gap-6 max-w-md">
-          <div>
-            <p class="text-muted text-sm mb-2"><kbd>📱</kbd> WhatsApp: <a href="https://wa.me/5581993600999" class="hover:text-accent transition-colors" target="_blank" rel="noopener">81 99360-0999</a></p>
-            <p class="text-muted text-sm mb-2"><kbd>📧</kbd> E-mail: <a href="mailto:apollonik10@gmail.com" class="hover:text-accent transition-colors">apollonik10@gmail.com</a></p>
-          </div>
-          <div>
-            <p class="text-muted text-sm mb-2"><kbd>🌐</kbd> GitHub: <a href="https://github.com/Apollonik10" class="hover:text-accent transition-colors" target="_blank" rel="noopener">@Apollonik10</a></p>
-            <p class="text-muted text-sm"><kbd>📍</kbd> Recife, PE</p>
-          </div>
-        </div>
-      </section>
-
-  </main>
-
-  <!-- Footer Astryx -->
-  <footer class="mt-12 pt-8 border-t text-center text-xs text-muted">
-    <p>© 2026 Felipe C. Garcia. Todos os direitos reservados. Licença MIT — uso comercial liberado.</p>
-  </footer>
-
-  <!-- Script vanilla JS — sem dependências pesadas -->
   <script>
-    // Theme toggle functionality
-    const themeToggle = document.querySelector('[aria-label="Alternar tema"]');
-    const html = document.documentElement;
+    const start = document.getElementById('start');
+    const video = document.getElementById('intro');
+    const container = document.getElementById('container');
 
-    // Verificar preferência do usuário reduzir movimento
-    const userPrefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme') || 'neutral';
-        const newTheme = currentTheme === 'neutral' ? 'dark' : 'neutral';
-        html.setAttribute('data-theme', newTheme);
-      });
-    }
-
-    // Respeita a preferência do usuário reduzir movimento
-    if (!userPrefersReducedMotion) {
-      // Animações leves somente se o usuário permitir
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: no-preference)');
-
-      // Adicionar classes de animação condicionally
-      document.addEventListener('DOMContentLoaded', () => {
-        const elements = document.querySelectorAll('h1, h2, h3, button, a');
-        elements.forEach(el => {
-          if (!el.classList.contains('no-animation')) {
-            el.style.transition = 'color 0.2s ease, background-color 0.2s ease';
-          }
-        });
-      });
-    }
-
-    // Focus visible enhancement
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-navigation');
-      }
+    start.addEventListener('click', () => {
+      start.style.opacity = 0;
+      video.play();
+      container.style.opacity = 1;
     });
 
-    // Initial focus management
-    document.addEventListener('DOMContentLoaded', () => {
-      const focusableElements = document.querySelectorAll('a[href], button, [role="button"], input, textarea, [tabindex]:not([tabindex="-1"])');
-      if (focusableElements.length > 0) {
-        focusableElements[0].focus();
-      }
-
-      // Inicializar carrossel de projetos
-      initProjetoCarrossel();
-    });
-
-    // Carrossel de Projetos (Fase 2: Componentes UI Avançados)
-    function initProjetoCarrossel() {
-      const track = document.querySelector('[data-carrossel-track]');
-      const prevBtn = document.querySelector('.carrossel-btn.prev');
-      const nextBtn = document.querySelector('.carrossel-btn.next');
-
-      if (!track || !prevBtn || !nextBtn) return;
-
-      const cards = track.querySelectorAll('.carrossel-card');
-      let currentIndex = 0;
-      const totalCards = cards.length;
-
-      // Injetar cards a partir dos projetos da seção principal se não houver nenhum
-      if (totalCards === 0) {
-        const projetosSection = document.getElementById('projetos');
-        if (projetosSection) {
-          const allCards = projetosSection.querySelectorAll('.bg-card.p-6.rounded-2xl');
-          allCards.forEach((card, index) => {
-            card.classList.add('carrossel-card');
-            card.style.flex = '0 0 auto';
-            const clone = card.cloneNode(true);
-            // Remover links que podem interferir
-            const links = clone.querySelectorAll('a');
-            links.forEach(l => l.remove());
-            track.appendChild(clone);
-          });
-        }
-        return;
-      }
-
-      // Configurar largura do card + gap
-      const cardWidth = cards[0].offsetWidth + 16; // width + gap
-
-      // Clonar cards para efeito infinito
-      cards.forEach(card => {
-        const clone = card.cloneNode(true);
-        clone.style.transition = 'transform 0.5s ease';
-        // Remover links dos clones para evitar duplicidade
-        const links = clone.querySelectorAll('a');
-        links.forEach(l => l.remove());
-        track.appendChild(clone);
-      });
-
-      // Navegação
-      function goToIndex(index) {
-        // Efeito looping infinito
-        const actualIndex = ((index % totalCards) + totalCards) % totalCards;
-        const offset = -actualIndex * cardWidth;
-        track.style.transform = `translateX(${offset}px)`;
-        currentIndex = actualIndex;
-      }
-
-      function nextSlide() {
-        goToIndex(currentIndex + 1);
-      }
-
-      function prevSlide() {
-        goToIndex(currentIndex - 1);
-      }
-
-      // Event listeners for buttons
-      prevBtn.addEventListener('click', prevSlide);
-      nextBtn.addEventListener('click', nextSlide);
-
-      // Keyboard navigation
-      prevBtn.setAttribute('role', 'button');
-      nextBtn.setAttribute('role', 'button');
-      prevBtn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          prevSlide();
-        }
-      });
-      nextBtn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          nextSlide();
-        }
-      });
-
-      // Touch/swipe support
-      let startX = 0;
-      let currentTranslate = 0;
-      let prevTranslate = 0;
-      let isDragging = false;
-
-      track.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-        prevTranslate = track.style.transform ? parseFloat(track.style.transform) || 0 : 0;
-      }, { passive: false });
-
-      track.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        const currentX = e.touches[0].clientX;
-        const diff = startX - currentX;
-        track.style.transform = `translateX(${prevTranslate - diff}px)`;
-      }, { passive: false });
-
-      track.addEventListener('touchend', () => {
-        isDragging = false;
-        // Snap to nearest card
-        const currentPos = parseFloat(track.style.transform) || 0;
-        const targetPos = Math.round(currentPos / cardWidth) * cardWidth;
-        track.style.transition = 'transform 0.3s ease';
-        track.style.transform = `translateX(${targetPos}px)`;
-        // Update currentIndex after snap
-        currentIndex = Math.round(-targetPos / cardWidth);
-      });
-
-      // Auto-play (opcional, desabilitado se usuário preferir reduzir movimento)
-      if (!userPrefersReducedMotion) {
-        let autoPlayInterval = setInterval(nextSlide, 5000);
-
-        track.parentElement.addEventListener('mouseenter', () => {
-          clearInterval(autoPlayInterval);
-        });
-
-        track.parentElement.addEventListener('mouseleave', () => {
-          autoPlayInterval = setInterval(nextSlide, 5000);
-        });
-      }
-
-      // Responsive: recalcular largura ao redimensionar
-      let resizeTimeout;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-          // Recarregar carrossel com novo width
-          const newCardWidth = cards[0] ? cards[0].offsetWidth + 16 : cardWidth;
-          cardWidth = newCardWidth;
-          // Reposicionar para o card atual
-          goToIndex(currentIndex);
-        }, 100);
-      });
-    }
+    video.onended = () => {
+      container.style.opacity = 0;
+      container.style.pointerEvents = 'auto';
+      setTimeout(() => {
+        window.location.href = 'app/portifolio.html';
+      }, 1000);
+    };
   </script>
-
-  <!-- Astryx CLI init block (template para agentes IA) -->
-  <noscript>
-    <p class="text-muted text-sm">Para a melhor experiência, ative o JavaScript no seu navegador.</p>
-  </noscript>
 
 </body>
 </html>
