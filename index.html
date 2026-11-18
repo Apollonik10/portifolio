@@ -2,77 +2,183 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Lunar Code</title>
- <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio — Felipe C. Garcia</title>
 
-    #container {
-      opacity: 0;
-      transition: opacity 1s ease;
-      pointer-events: none;
-    }
+  <!-- Astryx core styles via CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.io" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    video {
-      max-width: 100%;
-      max-height: 100%;
-    }
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@astryxdesign/core@0.7.16/astryx.css">
 
-    #start {
-      position: absolute;
-      z-index: 10;
-      color: #7ddcff;
-      font-family: Arial, sans-serif;
-      font-size: 18px;
-      cursor: pointer;
-      opacity: 1;
-      transition: opacity 0.5s;
-      padding: 12px 24px;
-      border: 2px solid #7ddcff; 
-      border-radius: 8px;
-      background: transparent;
-      transition: all 0.3s ease;
-    }
-  </style>
+  <!-- Tema customizado -->
+  <link rel="stylesheet" href="app/style.css">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/favicon-32x32.png" type="image/x-icon">
+
+  <!-- Metadados -->
+  <meta name="description" content="Portfólio de Felipe C. Garcia — desenvolvedor front-end com foco em estrutura, responsividade e experiência do usuário">
+  <meta name="author" content="Felipe C. Garcia">
 </head>
 
 <body>
 
-  <div id="start">Toque para iniciar</div>
+  <!-- Modelo Astryx: header com navegação e tema -->
+  <header class="border-b bg-card/50 backdrop-blur[data-theme='neutral']" data-theme-toggle>
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between flex-col sm:flex-row gap-2">
+      <h1 class="text-xl font-semibold tracking-tighter">
+        <a href="index.html" class="no-underline text-foreground">Felipe Garcia</a>
+      </h1>
 
-  <div id="container">
-    <video id="intro">
-      <source src="assets/vinheta.mp4" type="video/mp4">
-    </video>
-  </div>
+      <nav class="flex items-center gap-4" aria-label="Navegação principal">
+        <a href="index.html" class="hover:text-accent transition-colors" title="Início">Início</a>
+        <a href="app/portifolio.html" class="hover:text-accent transition-colors" title="Portfólio">Projetos</a>
+        <a href="#contato" class="hover:text-accent transition-colors" title="Contato">Contato</a>
+      </nav>
 
+      <!-- Botão de tema -->
+      <button class="theme-toggle inline-flex items-center gap-1 p-2 rounded-md hover:bg-accent/10 transition-colors" aria-label="Alternar tema">
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        <span class="sr-only">Alternar tema</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="max-w-7xl mx-auto px-4 py-12">
+
+      <section class="mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">Bem-vindo ao meu portfólio</h2>
+
+        <p class="text-lg leading-relaxed text-muted mb-8">
+          Sou desenvolvedor em formação, com foco em <strong>Front-end moderno</strong>, utilizando tecnologias atuais da web. Trabalho com código organizado, boas práticas e projetos pensados para crescer sem retrabalho.
+        </p>
+
+        <!-- Data-dense: Lista de tecnologias em vez de parágrafo longo -->
+        <div class="space-y-3 text-sm">
+          <div>
+            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">HTML5 semântico</kbd>
+            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">CSS3 Flexbox e Grid</kbd>
+            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">JavaScript ES6+</kbd>
+            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">Git & GitHub</kbd>
+            <kbd class="bg-zinc-100/50 px-2 py-0.5 rounded text-zinc-600">Design responsivo mobile-first</kbd>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção de projetos em grid (table-like layout) -->
+      <section id="projetos" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Cada projeto usa a estrutura de componente Astryx -->
+
+        <div class="bg-card p-6 rounded-2xl border border-card-border hover:hover:border-accent/20 hover:shadow-sm transition-all duration-300" tabindex="0" role="card">
+          <h3 class="text-lg font-medium mb-2">Google Glass (Projeto Conceitual)</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">
+            Projeto desenvolvido para praticar estrutura de páginas, layout responsivo e organização de conteúdo.
+          </p>
+          <ul class="space-y-1 text-xs">
+            <li><kbd>HTML semântico</kbd></li>
+            <li><kbd>CSS organizado</kbd></li>
+            <li><kbd>Navegação clara</kbd></li>
+            <li><kbd>Adaptação para telas</kbd></li>
+          </ul>
+          <a href="#" class="mt-3 inline-block text-accent hover:underline" title="Ver mais detalhes">Ver projeto</a>
+        </div>
+
+        <div class="bg-card p-6 rounded-2xl border border-card-border hover:hover:border-accent/20 hover:shadow-sm transition-all duration-300" tabindex="0" role="card">
+          <h3 class="text-lg font-medium mb-2">Outros projetos em destaque</h3>
+          <p class="text-muted text-sm leading-relaxed mb-4">
+            Interface para negócios reais, aplicações web progressivas (PWA) e projetos com foco em usabilidade e escalabilidade.
+          </p>
+          <ul class="space-y-1 text-xs">
+            <li><kbd>PWA & Progressive Web Apps</kbd></li>
+            <li><kbd>Usabilidade avançada</kbd></li>
+            <li><kbd>Escalabilidade front-end</kbd></li>
+          </ul>
+          <a href="#" class="mt-3 inline-block text-accent hover:underline" title="Ver mais projetos">Ver mais</a>
+        </div>
+
+      </section>
+
+      <!-- Seção de contato flutuante -->
+      <section class="mt-12 pt-8 border-t" id="contato">
+        <h2 class="text-2xl font-bold leading-tight mb-4">Contato</h2>
+
+        <div class="grid grid-cols-2 gap-6 max-w-md">
+          <div>
+            <p class="text-muted text-sm mb-2"><kbd>📱</kbd> WhatsApp: <a href="https://wa.me/5581993600999" class="hover:text-accent transition-colors" target="_blank" rel="noopener">81 99360-0999</a></p>
+            <p class="text-muted text-sm mb-2"><kbd>📧</kbd> E-mail: <a href="mailto:apollonik10@gmail.com" class="hover:text-accent transition-colors">apollonik10@gmail.com</a></p>
+          </div>
+          <div>
+            <p class="text-muted text-sm mb-2"><kbd>🌐</kbd> GitHub: <a href="https://github.com/Apollonik10" class="hover:text-accent transition-colors" target="_blank" rel="noopener">@Apollonik10</a></p>
+            <p class="text-muted text-sm"><kbd>📍</kbd> Recife, PE</p>
+          </div>
+        </div>
+      </section>
+
+  </main>
+
+  <!-- Footer Astryx -->
+  <footer class="mt-12 pt-8 border-t text-center text-xs text-muted">
+    <p>© 2026 Felipe C. Garcia. Todos os direitos reservados. Licença MIT — uso comercial liberado.</p>
+  </footer>
+
+  <!-- Script vanilla JS — sem dependências pesadas -->
   <script>
-    const start = document.getElementById('start');
-    const video = document.getElementById('intro');
-    const container = document.getElementById('container');
+    // Theme toggle functionality
+    const themeToggle = document.querySelector('[aria-label="Alternar tema"]');
+    const html = document.documentElement;
 
-    start.addEventListener('click', () => {
-      start.style.opacity = 0;
-      video.play();
-      container.style.opacity = 1;
+    // Verificar preferência do usuário reduzir movimento
+    const userPrefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme') || 'neutral';
+        const newTheme = currentTheme === 'neutral' ? 'dark' : 'neutral';
+        html.setAttribute('data-theme', newTheme);
+      });
+    }
+
+    // Respeita a preferência do usuário reduzir movimento
+    if (!userPrefersReducedMotion) {
+      // Animações leves somente se o usuário permitir
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: no-preference)');
+
+      // Adicionar classes de animação condicionally
+      document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('h1, h2, h3, button, a');
+        elements.forEach(el => {
+          if (!el.classList.contains('no-animation')) {
+            el.style.transition = 'color 0.2s ease, background-color 0.2s ease';
+          }
+        });
+      });
+    }
+
+    // Focus visible enhancement
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-navigation');
+      }
     });
 
-    video.onended = () => {
-      container.style.opacity = 0;
-      container.style.pointerEvents = 'auto';
-      setTimeout(() => {
-        window.location.href = 'app/portifolio.html';
-      }, 1000);
-    };
+    // Initial focus management
+    document.addEventListener('DOMContentLoaded', () => {
+      const focusableElements = document.querySelectorAll('a[href], button, [role="button"], input, textarea, [tabindex]:not([tabindex="-1"])');
+      if (focusableElements.length > 0) {
+        focusableElements[0].focus();
+      }
+    });
   </script>
+
+  <!-- Astryx CLI init block (template para agentes IA) -->
+  <noscript>
+    <p class="text-muted text-sm">Para a melhor experiência, ative o JavaScript no seu navegador.</p>
+  </noscript>
 
 </body>
 </html>
