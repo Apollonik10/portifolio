@@ -36,10 +36,28 @@
       opacity: 1;
       transition: opacity 0.5s;
       padding: 12px 24px;
-      border: 2px solid #7ddcff; 
+      border: 2px solid #7ddcff;
       border-radius: 8px;
       background: transparent;
       transition: all 0.3s ease;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--neon-blue);
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      z-index: 100;
+      transition: background 0.3s;
+    }
+
+    .skip-link:focus-visible {
+      background: var(--neon-pink);
+      outline: 2px solid #000;
     }
   </style>
 </head>
@@ -47,6 +65,8 @@
 <body>
 
   <div id="start">Toque para iniciar</div>
+
+  <a href="app/portifolio.html" class="skip-link">Pular introdução</a>
 
   <div id="container">
     <video id="intro">
@@ -58,11 +78,17 @@
     const start = document.getElementById('start');
     const video = document.getElementById('intro');
     const container = document.getElementById('container');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     start.addEventListener('click', () => {
       start.style.opacity = 0;
       video.play();
       container.style.opacity = 1;
+    });
+
+    // Pular introdução para usuários que já viram a vinheta
+    document.querySelector('.skip-link')?.addEventListener('click', () => {
+      window.location.href = 'app/portifolio.html';
     });
 
     video.onended = () => {
@@ -72,6 +98,12 @@
         window.location.href = 'app/portifolio.html';
       }, 1000);
     };
+
+    // Respeitar prefers-reduced-motion: reduzir animações
+    if (prefersReducedMotion) {
+      start.style.transition = 'opacity 0.1s ease';
+      container.style.transition = 'opacity 0.1s ease';
+    }
   </script>
 
 </body>
