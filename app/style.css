@@ -282,114 +282,140 @@ p {
 
 /* --- Fase 2: Habilidades e Formação --- */
 
-/* Chips de Skills */
+.skills-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  flex: 1;
+}
+
 .skill-chip {
-  display: inline-block;
-  background: rgba(0, 102, 255, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(11, 11, 11, 0.8);
   border: 1px solid var(--neon-blue);
-  color: var(--neon-blue);
-  font-size: .65rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  margin: 4px 6px 4px 0;
-  border-radius: 4px;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 6px;
   cursor: default;
   transition: var(--transition-fast);
 }
 
 .skill-chip:hover {
-  background: var(--neon-blue);
-  color: #000;
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
-}
-
-.skill-chip.chip-active {
-  background: rgba(0, 102, 255, 0.15);
-  border-color: var(--neon-blue);
-  color: var(--neon-blue);
-}
-
-.skill-chip.chip-active:hover {
-  background: var(--neon-blue);
-  color: #000;
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 12px rgba(255, 0, 204, 0.4);
+  transform: translateY(-2px);
+  color: #fff;
 }
 
 .skill-chip .chip-icon {
-  margin-right: .4rem;
-  font-size: .8em;
+  color: var(--neon-blue);
+  font-size: 1rem;
 }
 
-.skill-chip .chip-label {
-  vertical-align: middle;
+.skill-chip:hover .chip-icon {
+  color: var(--neon-pink);
 }
 
-/* Mascote alinhada responsivamente */
 .mascot-skill {
-  width: 80px;
+  width: 170px;
   height: auto;
-  margin-left: 1rem;
-  align-self: center;
+  flex-shrink: 0;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 252, 0.45));
+  transition: transform 0.3s ease;
+}
+
+.mascot-skill:hover {
+  transform: scale(1.05);
 }
 
 /* Timeline de Cursos */
 .courses-timeline {
+  position: relative;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 1.5rem 0 0 0.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--neon-blue);
 }
 
 .timeline-item {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
   margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 1rem;
 }
 
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -1.125rem;
-  top: 0;
-  width: 1rem;
-  height: 1rem;
+  left: -1.5rem;
+  transform: translateX(-50%);
+  top: 0.25rem;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   border: 2px solid var(--neon-blue);
-  background: var(--bg-color);
-}
-
-.timeline-dot {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  border: 2px solid var(--neon-blue);
-  background: var(--bg-color);
-  flex-shrink: 0;
+  background: #000;
+  box-shadow: 0 0 10px var(--neon-blue);
 }
 
 .timeline-content h3 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  margin-bottom: .25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
 }
 
 .timeline-status {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 4px 12px;
   border-radius: 4px;
-  font-size: .65rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .timeline-status.chip-active {
-  background: var(--neon-blue);
-  color: #000;
+  background: rgba(0, 255, 255, 0.15);
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
 }
 
 .timeline-status.chip-pending {
-  background: rgba(0, 102, 255, 0.15);
-  border: 1px solid var(--neon-blue);
-  color: var(--neon-blue);
+  background: rgba(255, 0, 204, 0.15);
+  border: 1px solid var(--neon-pink);
+  color: var(--neon-pink);
+  box-shadow: 0 0 8px rgba(255, 0, 204, 0.3);
+}
+
+@media (max-width: 600px) {
+  .skills-wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .mascot-skill {
+    width: 130px;
+  }
 }
 
 /* --- Mantendo estilos originais --- */
