@@ -592,3 +592,114 @@ footer {
     margin: 0.5rem;
   }
 }
+
+/* --- Magic UI Dock --- */
+
+.dock {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: rgba(11, 11, 11, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--neon-blue);
+  border-radius: 50px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.dock:hover {
+  transform: translateX(-50%) translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
+}
+
+.dock-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+}
+
+.dock-item {
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: dockEntrance 0.6s ease-out forwards;
+  animation-delay: calc(var(--dock-delay, 0) * 0.1s);
+}
+
+@keyframes dockEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dock-item:nth-child(1) { --dock-delay: 1; }
+.dock-item:nth-child(2) { --dock-delay: 2; }
+.dock-item:nth-child(3) { --dock-delay: 3; }
+
+.dock-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.75rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 56px;
+  height: 56px;
+}
+
+.dock-link:hover {
+  background: var(--neon-blue);
+  color: #000;
+  transform: scale(1.1);
+}
+
+.dock-link:hover .dock-icon {
+  filter: drop-shadow(0 0 10px var(--neon-blue));
+}
+
+.dock-icon {
+  width: 32px;
+  height: 32px;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.dock-icon span {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--neon-blue);
+  font-family: 'Inter', sans-serif;
+  text-shadow: none;
+}
+
+/* Reduzir movimentos animados */
+@media (prefers-reduced-motion: reduce) {
+  .dock-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .dock-link:hover {
+    background: transparent;
+    color: var(--neon-blue);
+    transform: none;
+  }
+
+  .dock-icon {
+    transition: transform 0.01s ease, filter 0.01s ease;
+  }
+}
